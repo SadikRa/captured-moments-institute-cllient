@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import {GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth";
 import app from "../firebase/firebase.config";
+
 export const AuthContext = createContext(null);
 
 
@@ -39,7 +40,7 @@ const AuthProvider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log('current user', currentUser);
-
+            setLoading(false)
             // get and set token
             // if(currentUser){
             //     axios.post('https://bistro-boss-server-fawn.vercel.app/jwt', {email: currentUser.email})

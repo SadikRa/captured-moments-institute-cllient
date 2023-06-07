@@ -1,19 +1,41 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+  const { googleSignIn, signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    signIn(data.email, data.password)
+      .then((Result) => {
+        console.log(Result);
+        reset();
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   console.log(errors);
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((Result) => {
+        console.log(Result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="flex justify-center my-24 items-center">
@@ -66,10 +88,16 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p>
+        <button
+          className="bg-blue-500 flex justify-center hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          onClick={handleGoogleLogin}
+        >
+         <p>Sign in With Google </p>  <FcGoogle className="w-8 h-5" />
+        </button>
+        <p className="mt-5">
           Do not have an account?
           <Link className="text-green-400" to={"/register"}>
-           Please Register
+            Please Register
           </Link>
         </p>
       </div>
