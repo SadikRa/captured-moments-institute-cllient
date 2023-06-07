@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAIYuSHuW09RJ48frY0W7yc8C49ty3LWZ0",
-  authDomain: "captured-moments-institute.firebaseapp.com",
-  projectId: "captured-moments-institute",
-  storageBucket: "captured-moments-institute.appspot.com",
-  messagingSenderId: "843485725726",
-  appId: "1:843485725726:web:ae55a2593fd3d2cfdd9a0f"
+  apiKey: import.meta.env.VITE_APIKEY ,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN ,
+  projectId: import.meta.env.VITE_PROJECTID ,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET ,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID ,
+  appId: import.meta.env.VITE_APPID ,
 };
 
 // Initialize Firebase

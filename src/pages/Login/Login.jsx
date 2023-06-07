@@ -16,7 +16,7 @@ const Login = () => {
   console.log(errors);
 
   return (
-    <div className="flex justify-center mt-10 items-center">
+    <div className="flex justify-center my-24 items-center">
       <Helmet>
         <title>Captured Moments Institute || Login</title>
       </Helmet>
