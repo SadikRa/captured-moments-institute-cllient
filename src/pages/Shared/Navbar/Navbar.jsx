@@ -8,39 +8,36 @@ const Navbar = () => {
 
   console.log(user);
 
-  const handleLogOut = () =>{
+  const handleLogOut = () => {
     logOut()
-    .then(result => {
-      console.log(result)
-    })
-    .catch(error => console.log(error))
-  }
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => console.log(error));
+  };
   const handleMouseOver = () => {
     setIsHovering(true);
   };
 
-
   const navOption = (
     <>
+      <Link to={"/instructors"}>
+        <li>
+          <a>Instructors</a>
+        </li>
+      </Link>
+      <Link to={"/classes"}>
+        <li>
+          <a>Classes</a>
+        </li>
+      </Link>
+     {
+      user ?  <Link to={"/dashboard"}>
       <li>
-        <a>Item 1</a>
+        <a>Dashboard</a>
       </li>
-      <li tabIndex={0}>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li>
-              <a>Submenu 1</a>
-            </li>
-            <li>
-              <a>Submenu 2</a>
-            </li>
-          </ul>
-        </details>
-      </li>
-      <li>
-        <a>Item 3</a>
-      </li>
+    </Link> : ''
+     }
     </>
   );
 
@@ -71,27 +68,29 @@ const Navbar = () => {
             {navOption}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">
-          Captured Moments Institute
-        </a>
+        <Link to={"/"}>
+          <a className="btn btn-ghost normal-case text-xl">
+            Captured Moments Institute
+          </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navOption}</ul>
       </div>
       <div className="navbar-end">
         {user ? (
-         <div className="flex gap-3">
-           <button
-            onClick={handleLogOut}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            LogOut
-          </button>
-           <div onMouseOver={handleMouseOver}>
-           <img className="w-10 rounded-full" src={user?.photoURL} />
-         </div>
-         {isHovering && <div>{user?.displayName}</div>}
-         </div>
+          <div className="flex gap-3">
+            <button
+              onClick={handleLogOut}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              LogOut
+            </button>
+            <div onMouseOver={handleMouseOver}>
+              <img className="w-10 rounded-full" src={user?.photoURL} />
+            </div>
+            {isHovering && <div>{user?.displayName}</div>}
+          </div>
         ) : (
           <Link to={"/login"}>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
