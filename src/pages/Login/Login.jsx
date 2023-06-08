@@ -42,7 +42,7 @@ const Login = () => {
 
 
   return (
-    <div className="flex justify-center my-24 items-center">
+    <div className="flex justify-center py-24 items-center">
       <Helmet>
         <title>Captured Moments Institute || Login</title>
       </Helmet>
