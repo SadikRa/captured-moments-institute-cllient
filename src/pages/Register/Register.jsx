@@ -3,10 +3,12 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
+import SociaLogin from "../Shared/SociaLogin/SociaLogin";
 
 const Register = () => {
-  const { createUser, googleSignIn } = useContext(AuthContext);
+  const { createUser,  updateUserProfile } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -19,17 +21,6 @@ const Register = () => {
 
   const password = watch("password");
 
-  const handleGoogleLogin = () => {
-    googleSignIn()
-      .then((Result) => {
-        console.log(Result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password)
@@ -37,6 +28,30 @@ const Register = () => {
         console.log(Result);
         reset();
         navigate("/");
+        updateUserProfile(data.name, data.photo).then(() => {
+          const saveUser = { name: data.name, email: data.email };
+          fetch(`${import.meta.env.VITE_URL}/users`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
+        });
       })
       .catch((error) => console.log(error));
   };
@@ -44,7 +59,7 @@ const Register = () => {
   // console.log(errors);
 
   return (
-    <div className="flex justify-center items-center my-24 h-screen">
+    <div className="flex justify-center items-center my-8 h-screen">
       <Helmet>
         <title>Captured Moments Institute || Register</title>
       </Helmet>
@@ -167,12 +182,7 @@ const Register = () => {
             Register
           </button>
         </form>
-        <button
-          className="bg-blue-500 flex justify-center hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          onClick={handleGoogleLogin}
-        >
-         <p>Sign in With Google </p>  <FcGoogle className="w-8 h-5" />
-        </button>
+        <SociaLogin></SociaLogin>
         <p className="mt-5">
           Already Have An Account
           <Link className="text-green-400" to={"/login"}>
