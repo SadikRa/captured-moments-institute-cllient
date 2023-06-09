@@ -22,6 +22,11 @@ const Navbar = () => {
 
   const navOption = (
     <>
+      <Link to={"/"}>
+        <li>
+          <a>Home</a>
+        </li>
+      </Link>
       <Link to={"/instructors"}>
         <li>
           <a>Instructors</a>

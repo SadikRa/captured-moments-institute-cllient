@@ -59,7 +59,7 @@ const Register = () => {
   // console.log(errors);
 
   return (
-    <div className="flex justify-center items-center my-8 h-screen">
+    <div className="flex justify-center items-center py-24 h-screen">
       <Helmet>
         <title>Captured Moments Institute || Register</title>
       </Helmet>

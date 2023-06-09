@@ -50,8 +50,8 @@ const AddAClass = () => {
       );
 
       if (saveClassResponse.ok) {
-        // Class successfully saved
-        console.log("Class saved successfully");
+        
+        // console.log("Class saved successfully");
         Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -59,8 +59,9 @@ const AddAClass = () => {
             showConfirmButton: false,
             timer: 1500
           })
+          form.reset()
       } else {
-        // Handle error response
+        
         console.log("Error saving class");
       }
     } catch (error) {
