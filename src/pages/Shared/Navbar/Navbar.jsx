@@ -6,7 +6,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isHovering, setIsHovering] = useState(false);
 
-  console.log(user);
+  // console.log(user);
 
   const handleLogOut = () => {
     logOut()
