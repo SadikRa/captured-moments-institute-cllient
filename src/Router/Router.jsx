@@ -15,6 +15,8 @@ import ManageUsers from "../pages/Dashboard/AdminDashboard/ManageUsers/ManageUse
 import AddAClass from "../pages/Dashboard/InstructorDashboard/AddAClass/AddAClass";
 import MyClasses from "../pages/Dashboard/InstructorDashboard/MyClasses/MyClasses";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 const router = createBrowserRouter([
     {
@@ -50,31 +52,31 @@ const router = createBrowserRouter([
       children: [
         {
           path:'manageClass',
-          element:<ManageClasses></ManageClasses>
+          element:<AdminRoute><ManageClasses></ManageClasses></AdminRoute>
         },
         {
           path:'manageUser',
-          element:<ManageUsers></ManageUsers>
+          element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
         },
         {
           path: 'addClass',
-          element: <AddAClass></AddAClass>
+          element: <InstructorRoute><AddAClass></AddAClass></InstructorRoute>
         },
         {
           path: 'myClasses',
-          element: <MyClasses></MyClasses>
+          element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
         },
         {
           path: 'myEnrolledClasses',
-          element: <MyEnrolledClasses></MyEnrolledClasses>
+          element: <PrivateRoute><MyEnrolledClasses></MyEnrolledClasses></PrivateRoute>
         },
         {
           path: 'paymentHistory',
-          element: <PaymentHistory></PaymentHistory>
+          element: <PrivateRoute> <PaymentHistory></PaymentHistory></PrivateRoute>
         },
         {
           path: 'myClass',
-          element: <MyClass></MyClass>
+          element: <PrivateRoute><MyClass></MyClass></PrivateRoute>
         }
       ]
     }

@@ -51,7 +51,6 @@ const AuthProvider = ({children}) => {
             if(currentUser){
                 axios.post(`${import.meta.env.VITE_URL}/jwt`, {email: currentUser.email})
                 .then(data =>{
-                    console.log(data.data.token)
                     localStorage.setItem('access-token', data.data.token)
                     setLoading(false);
                 })

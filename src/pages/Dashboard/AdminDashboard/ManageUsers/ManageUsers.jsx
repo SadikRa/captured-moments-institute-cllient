@@ -3,8 +3,10 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 
+
 const ManageUsers = () => {
   const [axiosSecure] = useAxiosSecure();
+ 
 
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await axiosSecure.get("/users");
@@ -83,7 +85,7 @@ const MakeInstructor = (user) =>{
                   ) : (
                     <button
                       onClick={() => MakeAdmin(user)}
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      className="btn btn-primary"
                     >
                       Make Admin
                     </button>
@@ -95,7 +97,7 @@ const MakeInstructor = (user) =>{
                   ) : (
                     <button
                       onClick={() => MakeInstructor(user)}
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      className="btn btn-primary"
                     >
                       Make Instructor
                     </button>

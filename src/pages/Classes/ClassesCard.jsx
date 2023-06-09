@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 // eslint-disable-next-line react/prop-types
 const ClassesCard = ({ classItem }) => {
@@ -13,6 +15,8 @@ const ClassesCard = ({ classItem }) => {
       setDisable(false);
     }
   }, [seats]);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor()
 
   return (
     <div>
@@ -29,8 +33,8 @@ const ClassesCard = ({ classItem }) => {
           <p>Price: {price}</p>
           <div className="card-actions">
             <button
-              disabled={disable}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              disabled={disable || isAdmin || isInstructor}
+              className="btn btn-primary"
             >
               Select Class
             </button>

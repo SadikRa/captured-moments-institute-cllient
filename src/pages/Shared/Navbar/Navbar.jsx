@@ -88,7 +88,7 @@ const Navbar = () => {
           <div className="flex gap-3">
             <button
               onClick={handleLogOut}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="btn btn-primary"
             >
               LogOut
             </button>
@@ -99,7 +99,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to={"/login"}>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button className="btn btn-primary">
               Login
             </button>
           </Link>
