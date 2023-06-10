@@ -36,6 +36,7 @@ const AddAClass = () => {
         instructorName,
         seats,
         price,
+        status: 'pending',
       };
 
       const saveClassResponse = await fetch(

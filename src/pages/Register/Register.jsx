@@ -29,7 +29,7 @@ const Register = () => {
         reset();
         navigate("/");
         updateUserProfile(data.name, data.photo).then(() => {
-          const saveUser = { name: data.name, email: data.email };
+          const saveUser = { name: data.name, email: data.email, photo: data.photo , role: 'student' };
           fetch(`${import.meta.env.VITE_URL}/users`, {
             method: "POST",
             headers: {

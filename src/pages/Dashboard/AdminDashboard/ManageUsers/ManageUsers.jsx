@@ -69,6 +69,7 @@ const MakeInstructor = (user) =>{
               <th>#</th>
               <th>Name</th>
               <th>Email</th>
+              <th>Role</th>
               <th>Admin</th>
               <th>Instructor</th>
             </tr>
@@ -79,6 +80,7 @@ const MakeInstructor = (user) =>{
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
+                <td>{user.role}</td>
                 <td>
                   {user.role === "admin" ? (
                     "admin"

@@ -46,7 +46,7 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            console.log('current user', currentUser);
+            // console.log('current user', currentUser);
             setLoading(false)
             if(currentUser){
                 axios.post(`${import.meta.env.VITE_URL}/jwt`, {email: currentUser.email})

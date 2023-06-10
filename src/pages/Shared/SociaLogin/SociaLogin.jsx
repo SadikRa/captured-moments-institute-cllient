@@ -20,6 +20,7 @@ const SociaLogin = () => {
           name: logginUser.displayName,
           email: logginUser.email,
           photo: logginUser.photoURL,
+          role: 'student'
         };
 
         fetch(`${import.meta.env.VITE_URL}/users`, {

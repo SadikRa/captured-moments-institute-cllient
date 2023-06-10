@@ -21,7 +21,7 @@ const ClassesCard = ({ classItem }) => {
   return (
     <div>
       <div className={
-        parseFloat(seats) === 0 ? 'card w-96 bg-red-500 shadow-xl ' : 'card w-96 bg-base-100 shadow-xl hover:bg-white'
+        parseFloat(seats) === 0 ? 'card w-96 bg-red-500 shadow-xl ' : 'card w-96 bg-base-100 shadow-xl hover:bg-blue-200'
       }>
         <figure className="px-10 pt-10">
           <img src={imageUrl} alt="classes" className="rounded-xl w-72 h-72" />
