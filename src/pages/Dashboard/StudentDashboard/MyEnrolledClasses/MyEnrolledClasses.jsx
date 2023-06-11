@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const MyEnrolledClasses = () => {
 
@@ -15,6 +16,9 @@ const MyEnrolledClasses = () => {
   
     return (
         <div className="w-full">
+           <Helmet>
+        <title>Captured Moments Institute || enrolled class</title>
+      </Helmet>
             <h1>My Enrolled Classes</h1>
             <div className="overflow-x-auto">
         <table className="table">

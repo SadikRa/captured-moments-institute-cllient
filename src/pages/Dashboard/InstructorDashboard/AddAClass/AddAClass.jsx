@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddAClass = () => {
   const { user } = useContext(AuthContext);
@@ -73,6 +74,9 @@ const AddAClass = () => {
   return (
     <div>
       <div className="my-8">
+      <Helmet>
+        <title>Captured Moments Institute || add a class</title>
+      </Helmet>
         <form onSubmit={handlePostClass}>
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
             <div className="w-full">

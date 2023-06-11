@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -52,6 +53,9 @@ const ManageClasses = () => {
 
   return (
     <div className="w-full">
+       <Helmet>
+        <title>Captured Moments Institute || manage class</title>
+      </Helmet>
       <div className="overflow-x-auto">
         <table className="table">
           <thead>

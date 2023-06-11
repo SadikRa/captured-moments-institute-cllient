@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const MyClasses = () => {
   const { user } = useContext(AuthContext);
@@ -17,6 +18,9 @@ const MyClasses = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+       <Helmet>
+        <title>Captured Moments Institute || my class</title>
+      </Helmet>
       {classes.map((classItem) => (
         <div key={classItem._id}>
           <div className="card w-96 bg-base-100 shadow-xl">

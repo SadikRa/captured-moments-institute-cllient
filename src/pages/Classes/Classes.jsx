@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import ClassesCard from "./ClassesCard";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -12,6 +13,9 @@ const Classes = () => {
 
   return (
     <div className="py-24">
+       <Helmet>
+        <title>Captured Moments Institute || Classes</title>
+      </Helmet>
       <h2 className="text-3xl text-center font-semibold my-5">
         Our All Classes
       </h2>

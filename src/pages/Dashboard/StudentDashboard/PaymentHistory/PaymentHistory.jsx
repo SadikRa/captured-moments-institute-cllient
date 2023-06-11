@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +14,9 @@ const PaymentHistory = () => {
 
   return (
     <div className="w-full">
+       <Helmet>
+        <title>Captured Moments Institute || payment history</title>
+      </Helmet>
       <h2 className="text-4xl text-center">My Payment History List</h2>
       <div className="overflow-x-auto">
         <table className="table">
