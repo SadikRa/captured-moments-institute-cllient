@@ -4,6 +4,7 @@ import { AuthContext } from "../../../../providers/AuthProvider";
 const MyEnrolledClasses = () => {
 
     const { user } = useContext(AuthContext);
+    
     const [enrolled, setEnrolled] = useState([]);
   
     useEffect(() => {
