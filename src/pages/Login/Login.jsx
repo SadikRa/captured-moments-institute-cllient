@@ -50,12 +50,12 @@ const Login = () => {
         <h1 className="text-2xl font-bold text-center mb-6">Please login</h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-white text-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-white text-black shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block text-white text-sm font-bold mb-2"
+              className="block text-black text-sm font-bold mb-2"
             >
               Email
             </label>
@@ -63,14 +63,14 @@ const Login = () => {
               id="email"
               type="email"
               placeholder="Email"
-              className="appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
               {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
             />
           </div>
           <div className="mb-4">
             <label
               htmlFor="password"
-              className="block text-white text-sm font-bold mb-2"
+              className="block text-black text-sm font-bold mb-2"
             >
               Password
             </label>
@@ -78,7 +78,7 @@ const Login = () => {
               id="password"
               type="password"
               placeholder="Password"
-              className="appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
               {...register("password", {
                 required: true,
                 minLength: 6,

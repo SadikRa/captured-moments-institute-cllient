@@ -6,7 +6,7 @@ const Classes = () => {
   const [axiosSecure] = useAxiosSecure();
 
   const { data: classes = [] } = useQuery(["classes"], async () => {
-    const res = await axiosSecure.get("/classes");
+    const res = await axiosSecure.get("/approveClasses");
     return res.data;
   });
 

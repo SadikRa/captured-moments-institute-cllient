@@ -69,12 +69,12 @@ const Register = () => {
         </h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-white text-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-white text-black shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
           <div className="mb-4">
             <label
               htmlFor="name"
-              className="block text-white text-sm font-bold mb-2"
+              className="block text-black text-sm font-bold mb-2"
             >
               Name
             </label>
@@ -82,14 +82,14 @@ const Register = () => {
               id="name"
               type="text"
               placeholder="Name"
-              className="appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
               {...register("name", { required: true, maxLength: 80 })}
             />
           </div>
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block text-white text-sm font-bold mb-2"
+              className="block text-black text-sm font-bold mb-2"
             >
               Email
             </label>
@@ -97,14 +97,14 @@ const Register = () => {
               id="email"
               type="email"
               placeholder="Email"
-              className="appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
               {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
             />
           </div>
           <div className="mb-4">
             <label
               htmlFor="password"
-              className="block text-white text-sm font-bold mb-2"
+              className="block text-black text-sm font-bold mb-2"
             >
               Password
             </label>
@@ -112,7 +112,7 @@ const Register = () => {
               id="password"
               type="password"
               placeholder="Password"
-              className="appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
               {...register("password", {
                 required: true,
                 minLength: 6,
@@ -141,7 +141,7 @@ const Register = () => {
           <div className="mb-6">
             <label
               htmlFor="confirmPassword"
-              className="block text-white text-sm font-bold mb-2"
+              className="block text-black text-sm font-bold mb-2"
             >
               Confirm Password
             </label>
@@ -149,7 +149,7 @@ const Register = () => {
               id="confirmPassword"
               type="password"
               placeholder="Confirm password"
-              className="appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
               {...register("confirmPassword", {
                 required: true,
                 minLength: 6,
@@ -162,7 +162,7 @@ const Register = () => {
           <div className="mb-4">
             <label
               htmlFor="name"
-              className="block text-white text-sm font-bold mb-2"
+              className="block text-black text-sm font-bold mb-2"
             >
               Photo Url
             </label>
@@ -170,7 +170,7 @@ const Register = () => {
               id="photo"
               type="text"
               placeholder="Photo Url"
-              className="appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
               {...register("photo", { required: true })}
             />
           </div>
