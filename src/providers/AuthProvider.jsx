@@ -12,16 +12,14 @@ import {
 import app from "../firebase/firebase.config";
 import axios from "axios";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 
 const auth = getAuth(app);
-
+const googleProvider = new GoogleAuthProvider();
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-
-  const googleProvider = new GoogleAuthProvider();
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -39,7 +37,6 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    setLoading(true);
     return signOut(auth);
   };
 
@@ -54,16 +51,19 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       // console.log('current user', currentUser);
-      setLoading(false);
+
       if (currentUser) {
         axios
           .post(`${import.meta.env.VITE_URL}/jwt`, { email: currentUser.email })
           .then((data) => {
-            localStorage.setItem("access-token", data.data.token);
-            setLoading(false);
+            if (data.data) {
+              localStorage.setItem("access-token", data?.data?.token);
+              setLoading(false);
+            }
           });
       } else {
         localStorage.removeItem("access-token");
+        setLoading(false);
       }
     });
     return () => {
