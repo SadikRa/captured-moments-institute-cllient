@@ -2,9 +2,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import SociaLogin from "../Shared/SociaLogin/SociaLogin";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -60,7 +60,6 @@ const Login = () => {
               Email
             </label>
             <input
-              id="email"
               type="email"
               placeholder="Email"
               className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
@@ -75,7 +74,6 @@ const Login = () => {
               Password
             </label>
             <input
-              id="password"
               type="password"
               placeholder="Password"
               className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"

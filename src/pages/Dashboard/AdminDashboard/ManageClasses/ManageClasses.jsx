@@ -106,6 +106,7 @@ const ManageClasses = () => {
                       Deny
                     </button>
                   )}
+                  <button className="btn btn-primary">feedback </button>
                 </td>
               </tr>
             ))}
