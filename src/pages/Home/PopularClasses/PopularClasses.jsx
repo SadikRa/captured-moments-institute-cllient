@@ -35,15 +35,15 @@ const PopularClasses = () => {
       // eslint-disable-next-line no-undef
       const saveClass = {
         // eslint-disable-next-line no-undef
-        className,
+        className: classItem.className,
         // eslint-disable-next-line no-undef
-        imageUrl,
+        imageUrl: classItem.imageUrl,
         // eslint-disable-next-line no-undef
-        instructorName,
+        instructorName: classItem.instructorName,
         // eslint-disable-next-line no-undef
-        price,
+        price: classItem.price,
         // eslint-disable-next-line no-undef
-        seats,
+        seats: classItem.seats,
         email: user.email,
       };
 
