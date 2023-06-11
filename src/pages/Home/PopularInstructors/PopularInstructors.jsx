@@ -32,7 +32,7 @@ const PopularInstructors = () => {
         <>
           <div key={instructor._id} className="card w-96 bg-base-100 hover:bg-blue-200 shadow-xl">
             <figure>
-              <img className="w-72 h-72" src={instructor?.photo} alt="instructor photo" />
+              <img className="w-72 h-72 rounded-lg" src={instructor?.photo} alt="instructor photo" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">Name: {instructor.name}</h2>

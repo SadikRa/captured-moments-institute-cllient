@@ -12,44 +12,44 @@ const ManageClasses = () => {
 
   const handleApprove = (classItem) => {
     fetch(`${import.meta.env.VITE_URL}/classes/approve/${classItem._id}`, {
-        method: 'PATCH'
+      method: "PATCH",
     })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data)
-        if(data.modifiedCount){
-            refetch();
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: `${classItem.className} class is approve now`,
-                showConfirmButton: false,
-                timer: 1500
-              })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${classItem.className} class is approve now`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
-    })
-  }
+      });
+  };
 
   const handleDeny = (classItem) => {
     fetch(`${import.meta.env.VITE_URL}/classes/deny/${classItem._id}`, {
-        method: 'PATCH'
+      method: "PATCH",
     })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data)
-        if(data.modifiedCount){
-            refetch();
-            Swal.fire({
-                position: 'top-end',
-                icon: 'warning',
-                title: `${classItem.className} class is Deny`,
-                showConfirmButton: false,
-                timer: 1500
-              })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "warning",
+            title: `${classItem.className} class is Deny`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
-    })
-  }
- 
+      });
+  };
+
   return (
     <div className="w-full">
       <div className="overflow-x-auto">
@@ -84,10 +84,28 @@ const ManageClasses = () => {
                 <td>{classItem.price}</td>
                 <td>{classItem.status}</td>
                 <td>
-                  <button onClick={() => handleApprove(classItem)} className="btn btn-primary">Approve</button>
+                  {classItem.status === "approve" ? (
+                    "approve"
+                  ) : (
+                    <button
+                      onClick={() => handleApprove(classItem)}
+                      className="btn btn-primary"
+                    >
+                      Approve
+                    </button>
+                  )}
                 </td>
                 <td>
-                  <button onClick={() => handleDeny(classItem)} className="btn btn-warning">Deny</button>
+                  {classItem.status === "denied" ? (
+                    "denied"
+                  ) : (
+                    <button
+                      onClick={() => handleDeny(classItem)}
+                      className="btn btn-warning"
+                    >
+                      Deny
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}

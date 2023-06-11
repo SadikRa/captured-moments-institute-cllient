@@ -82,8 +82,8 @@ const MakeInstructor = (user) =>{
                 <td>{user.email}</td>
                 <td>{user.role}</td>
                 <td>
-                  {user.role === "admin" ? (
-                    "admin"
+                  {user.role === "admin" || user.role === "instructor"  ? (
+                    <button className="btn" disabled="disabled">Make Admin</button>
                   ) : (
                     <button
                       onClick={() => MakeAdmin(user)}
@@ -94,8 +94,8 @@ const MakeInstructor = (user) =>{
                   )}
                 </td>
                 <td>
-                  {user.role === "instructor" ? (
-                    "instructor"
+                  {user.role === "instructor" || user.role === "admin" ? (
+                    <button className="btn" disabled="disabled">Make Instructor</button>
                   ) : (
                     <button
                       onClick={() => MakeInstructor(user)}
